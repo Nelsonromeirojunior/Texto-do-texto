@@ -324,8 +324,28 @@ body.dark-theme .theme-toggle {
   z-index: 1000;
 }
 
+/* Footer Styles */
+footer.theme-footer {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  padding: 2rem 0;
+  margin-block-start: 2rem;
+}
+
+body.dark-theme footer.theme-footer {
+  background: #1e1e2f;
+}
+
+footer.theme-footer p {
+  font-size: 1rem;
+}
+
+footer.theme-footer strong {
+  color: var(--secondary-color);
+}
+
 /* Media Queries para Celular e Tablet */
-@media (max-inline-size: 768px) {
+@media (max-width: 768px) {
   .main-container {
     margin: 10px;
     padding: 10px;
@@ -370,9 +390,17 @@ body.dark-theme .theme-toggle {
   .history-item {
     font-size: 0.9rem;
   }
+
+  footer.theme-footer {
+    padding: 1.5rem 0;
+  }
+
+  footer.theme-footer p {
+    font-size: 0.9rem;
+  }
 }
 
-@media (max-inline-size: 576px) {
+@media (max-width: 576px) {
   .main-container {
     margin: 5px;
   }
@@ -418,6 +446,19 @@ body.dark-theme .theme-toggle {
   .history-timestamp {
     font-size: 0.7rem;
   }
+
+  footer.theme-footer {
+    padding: 1rem 0;
+  }
+
+  footer.theme-footer .row > div {
+    text-align: center !important;
+    margin-block-end: 10px;
+  }
+
+  footer.theme-footer p {
+    font-size: 0.8rem;
+  }
 }
 
 /* Tema automático baseado na preferência do sistema */
@@ -456,6 +497,10 @@ body.dark-theme .theme-toggle {
   body:not(.light-theme) .history-item {
     background: #343a40;
     border-inline-start-color: #4dabf7;
+  }
+
+  body:not(.light-theme) footer.theme-footer {
+    background: #1e1e2f;
   }
 }
 

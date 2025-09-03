@@ -12,7 +12,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assist/CSS/appvoztexto.css">
+    <link rel="stylesheet" href="./assist/CSS/appvoztexto.css" />
   </head>
   <body>
     <!-- Botão de alternância de tema -->
@@ -130,9 +130,36 @@
       </div>
     </div>
 
-    <!-- Toast Container -->
-    <div class="toast-container"></div>
+    <!-- Footer -->
+    <footer class="theme-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">
+              &copy; <span id="ano-atual"></span> DEV Libras Júnior. Todos os
+              direitos reservados.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="mb-0">
+              Desenvolvidor Front-End por <strong>Nelson Junior</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
+    <div class="toast-container"></div>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
