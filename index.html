@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conversor Voz para Texto</title>
+    <title>Vídeo no Legando Virtual para Tradução Libras</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,23 +12,19 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assist/CSS/appvoztexto.css" />
+    <link rel="stylesheet" href="./assist/CSS/style.css" />
+    <link rel="icon" href="./assist/Img/CC_Libras.png" type="image/png" />
   </head>
   <body>
-    <!-- Botão de alternância de tema -->
-    <button class="theme-toggle" id="themeToggle">
-      <i class="fas fa-sun"></i>
-    </button>
-
     <div class="container-fluid">
       <div class="main-container">
         <div class="floating-particles" id="particles"></div>
 
         <div class="header">
           <h1>
-            <i class="fas fa-microphone-alt"></i> Conversor Voz para Texto
+            <i class="fas fa-microphone-alt"></i> Vídeo no Legando Virtual para Tradução Libras
           </h1>
-          <p>Tecnologia de Reconhecimento de Fala Avançada</p>
+          <p>Pode Vídeo no Legando Virtual depois Tradução Libras:</p>
         </div>
 
         <div class="control-panel">
@@ -42,7 +38,6 @@
           <button id="microphoneBtn" class="microphone-btn idle">
             <i class="fas fa-microphone"></i>
           </button>
-
           <!-- Settings Panel -->
           <div class="settings-panel">
             <div class="row">
@@ -129,27 +124,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="theme-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="mb-0">
-              &copy; <span id="ano-atual"></span> DEV Libras Júnior. Todos os
-              direitos reservados.
-            </p>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <p class="mb-0">
-              Desenvolvidor Front-End por <strong>Nelson Junior</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <div class="toast-container"></div>
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
@@ -160,9 +134,11 @@
     <script>
       new window.VLibras.Widget("https://vlibras.gov.br/app");
     </script>
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-    <script src="./assist/JS/appvoztexto.js"></script>
+    <!-- Arquivo no JS -->
+    <script src="./assist/JS/script.js"></script>
   </body>
 </html>
