@@ -1,267 +1,519 @@
-# 🎤 Conversor Voz para Texto - Voice to Text
+# 🎤 SISTEMA DE VOZ PARA TEXTO COM FILTRO DE RUÍDO
 
-Uma aplicação web moderna e acessível para conversão de fala em texto, desenvolvida especialmente para pessoas com deficiência auditiva e todos que precisam de transcrição de voz em tempo real.
+## 📦 O QUE FOI ADICIONADO?
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?&style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?&style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?&style=flat&logo=javascript&logoColor=%23F7DF1E)
-![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?&style=flat&logo=bootstrap&logoColor=white)
+### ✅ **NOVOS RECURSOS PRINCIPAIS**
 
-## 🌟 Características Principais
+1. **🛡️ Filtro Inteligente de Ruído**
 
-### ✨ **Interface Moderna e Acessível**
-- Design responsivo com Bootstrap 5
-- Alto contraste para melhor legibilidade
-- Feedback visual constante
-- Animações suaves e intuitivas
-- Compatível com dispositivos móveis
+   - Remove automaticamente ruídos de fundo
+   - Filtra barulhos de carros, vento, alarmes
+   - Elimina conversas paralelas
+   - Ajustável por sensibilidade
 
-### 🎯 **Funcionalidades Avançadas**
-- **Reconhecimento contínuo de fala** em tempo real
-- **Suporte a 6 idiomas**: Português, Inglês, Espanhol, Francês, Italiano e Alemão
-- **Medidor de confiança** para precisão da transcrição
-- **Histórico automático** das últimas 10 conversões
-- **Exportação** em formato .txt
-- **Contador** de palavras e caracteres
+2. **🔊 Cancelamento de Eco**
 
-### 🔒 **Privacidade e Segurança**
-- Funcionamento 100% local no navegador
-- Nenhum dado enviado para servidores externos
-- Salvamento local opcional
-- Sem necessidade de cadastro ou login
+   - Remove ecos e reverberações
+   - Ideal para ambientes fechados
+   - Melhora clareza da voz
 
-## 🚀 Demo Online
+3. **📊 Ganho Automático (AGC)**
 
-**[🔗 Acesse a Demonstração Aqui](https://seu-usuario.github.io/voice-to-text)**
+   - Ajusta volume automaticamente
+   - Normaliza áudio de entrada
+   - Compensa vozes muito baixas ou altas
 
-## 📱 Compatibilidade
+4. **📈 Visualizador de Áudio em Tempo Real**
 
-| Navegador | Desktop | Mobile | Suporte |
-|-----------|---------|--------|---------|
-| Chrome | ✅ | ✅ | Completo |
-| Edge | ✅ | ✅ | Completo |
-| Safari | ✅ | ✅ | Completo |
-| Firefox | ⚠️ | ⚠️ | Limitado |
+   - Mostra ondas sonoras capturadas
+   - Feedback visual do que está sendo gravado
+   - Ajuda a identificar ruídos
 
-## 🛠️ Tecnologias Utilizadas
+5. **🎯 Detecção de Silêncio**
 
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **Framework CSS**: Bootstrap 5.3.0
-- **Ícones**: Font Awesome 6.4.0
-- **API**: Web Speech API (nativa do navegador)
-- **Armazenamento**: LocalStorage para histórico
+   - Para automaticamente após 2 segundos de silêncio
+   - Economiza processamento
+   - Evita gravações desnecessárias
 
-## 📦 Instalação e Uso
+6. **🧹 Limpeza Automática de Transcrição**
+   - Remove padrões de ruído no texto
+   - Filtra resultados com baixa confiança
+   - Texto mais limpo e preciso
 
-### Opção 1: Uso Direto (Recomendado)
-1. Faça o download do arquivo `index.html`
-2. Abra o arquivo em qualquer navegador moderno
-3. Permita o acesso ao microfone quando solicitado
-4. Comece a usar imediatamente!
+---
 
-### Opção 2: Servidor Local
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/voice-to-text.git
+## 🚀 COMO INSTALAR
 
-# Entre na pasta
-cd voice-to-text
+### **Opção 1: Substituir Arquivos (Mais Fácil)**
 
-# Inicie um servidor local (Python)
-python -m http.server 8000
+1. **Substitua o arquivo `script.js`:**
 
-# Ou use Node.js
-npx http-server
+   ```
+   📁 assist/JS/script.js
+   ```
 
-# Acesse http://localhost:8000
+   - Copie o novo código JavaScript completo
+   - Cole substituindo todo o conteúdo antigo
+
+2. **Substitua o arquivo `index.html`:**
+
+   ```
+   📁 index.html
+   ```
+
+   - Copie o novo código HTML completo
+   - Cole substituindo todo o conteúdo antigo
+
+3. **Adicione os estilos CSS:**
+
+   ```
+   📁 assist/CSS/style.css
+   ```
+
+   - **IMPORTANTE:** Não substitua o arquivo inteiro!
+   - Abra o arquivo `style.css` existente
+   - Role até o FINAL do arquivo
+   - Cole o novo código CSS adicional
+   - Salve o arquivo
+
+4. **Teste o sistema:**
+   - Abra o `index.html` no navegador
+   - Permita acesso ao microfone
+   - Teste os novos controles
+
+---
+
+## 🎛️ COMO USAR OS NOVOS CONTROLES
+
+### **1. Filtro Inteligente de Ruído** 🛡️
+
+```
+☑️ Ativado (Recomendado)
+□  Desativado
 ```
 
-### Opção 3: GitHub Pages
-1. Fork este repositório
-2. Vá em Settings > Pages
-3. Selecione a branch main
-4. Acesse `https://seu-usuario.github.io/voice-to-text`
+- **Quando usar:** Sempre que houver ruído de fundo
+- **Como funciona:** Filtra automaticamente sons indesejados
+- **Resultado:** Transcrição mais precisa
 
-## 📖 Como Usar
+### **2. Cancelamento de Eco** 🔊
 
-### 🎤 **Iniciando a Transcrição**
-1. **Permitir Microfone**: O navegador solicitará permissão na primeira vez
-2. **Escolher Idioma**: Selecione no dropdown (padrão: Português)
-3. **Clicar no Microfone**: Botão grande e circular no centro
-4. **Falar Normalmente**: O texto aparece em tempo real
-5. **Parar Gravação**: Clique novamente no microfone
+```
+☑️ Ativado (Recomendado)
+□  Desativado
+```
 
-### 💾 **Salvando e Exportando**
-- **Salvar**: Armazena no histórico local do navegador
-- **Copiar**: Copia para área de transferência
-- **Download**: Exporta como arquivo .txt
-- **Limpar**: Remove o texto atual
+- **Quando usar:** Ambientes fechados, salas com eco
+- **Como funciona:** Remove reverberações e ecos
+- **Resultado:** Voz mais clara e definida
 
-### ⌨️ **Atalhos de Teclado**
-- `Ctrl + S`: Salvar texto
-- `Ctrl + Shift + C`: Copiar texto
-- `Ctrl + Shift + Space`: Iniciar/parar gravação
+### **3. Ganho Automático (AGC)** 📊
 
-## 🎨 Interface Visual
+```
+☑️ Ativado (Recomendado)
+□  Desativado
+```
 
-### Estados do Microfone
-- 🟢 **Verde**: Pronto para gravar
-- 🔴 **Vermelho**: Gravando (com animação pulsante)
-- ⚫ **Cinza**: Desabilitado ou erro
+- **Quando usar:** Sempre, para normalizar volume
+- **Como funciona:** Ajusta volume automaticamente
+- **Resultado:** Volume consistente durante toda gravação
 
-### Indicadores Visuais
-- **Barra de Confiança**: Mostra a precisão da transcrição
-- **Contador em Tempo Real**: Palavras e caracteres
-- **Notificações Toast**: Feedback para todas as ações
-- **Histórico Visual**: Últimas transcrições com timestamps
+### **4. Sensibilidade de Ruído** 🎚️
 
-## 🌍 Idiomas Suportados
+```
+Muito Baixa [────●──────] Muito Alta
+      1%                    10%
+```
 
-| Código | Idioma | Status |
-|--------|--------|--------|
-| `pt-BR` | Português (Brasil) | ✅ Completo |
-| `en-US` | English (US) | ✅ Completo |
-| `es-ES` | Español | ✅ Completo |
-| `fr-FR` | Français | ✅ Completo |
-| `it-IT` | Italiano | ✅ Completo |
-| `de-DE` | Deutsch | ✅ Completo |
+- **Valor Baixo (1-3%):** Filtra MAIS ruído, mas pode cortar palavras
+- **Valor Médio (4-6%):** Equilíbrio recomendado
+- **Valor Alto (7-10%):** Filtra MENOS ruído, capta tudo
 
-## 🔧 Configurações Avançadas
+**🎯 Recomendação:**
 
-### Personalização CSS
-```css
-/* Alterar cores principais */
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --success-color: #27ae60;
-    --danger-color: #e74c3c;
+- Ambiente silencioso: 2-3%
+- Ambiente normal: 4-5%
+- Ambiente barulhento: 6-8%
+
+---
+
+## 🔧 CENÁRIOS DE USO
+
+### **📍 Cenário 1: Ambiente Silencioso (Casa/Escritório)**
+
+```
+✅ Filtro de Ruído: Ativado
+✅ Cancelamento de Eco: Ativado
+✅ Ganho Automático: Ativado
+🎚️ Sensibilidade: 2-3%
+```
+
+### **📍 Cenário 2: Ambiente com Ruído Moderado (Café/Escola)**
+
+```
+✅ Filtro de Ruído: Ativado
+✅ Cancelamento de Eco: Ativado
+✅ Ganho Automático: Ativado
+🎚️ Sensibilidade: 5-6%
+```
+
+### **📍 Cenário 3: Ambiente Muito Barulhento (Rua/Veículos)**
+
+```
+✅ Filtro de Ruído: Ativado
+✅ Cancelamento de Eco: Desativado (não ajuda em externas)
+✅ Ganho Automático: Ativado
+🎚️ Sensibilidade: 7-8%
+```
+
+### **📍 Cenário 4: Palestra/Reunião (Várias Pessoas)**
+
+```
+✅ Filtro de Ruído: Ativado
+✅ Cancelamento de Eco: Ativado
+✅ Ganho Automático: Ativado
+🎚️ Sensibilidade: 4-5%
+```
+
+---
+
+## 🎯 DICAS PARA MELHOR QUALIDADE
+
+### **🎤 Posicionamento do Microfone**
+
+- ✅ Mantenha 15-30cm de distância da boca
+- ✅ Evite cobrir o microfone com a mão
+- ✅ Posicione longe de fontes de ruído (ventiladores, ar condicionado)
+
+### **🗣️ Técnica de Fala**
+
+- ✅ Fale em tom normal, não precisa gritar
+- ✅ Pronuncie claramente as palavras
+- ✅ Faça pausas naturais entre frases
+- ✅ Evite falar muito rápido
+
+### **🌍 Ambiente**
+
+- ✅ Escolha locais mais silenciosos quando possível
+- ✅ Feche janelas se houver ruído de rua
+- ✅ Desligue ventiladores/ar condicionado se possível
+- ✅ Peça silêncio a outras pessoas próximas
+
+### **📱 Conexão**
+
+- ✅ Mantenha internet estável (reconhecimento é online)
+- ✅ Use conexão Wi-Fi quando disponível
+- ✅ Evite usar durante navegação pesada
+
+---
+
+## 🔍 ENTENDENDO O VISUALIZADOR DE ÁUDIO
+
+```
+📊 Ondas Grandes e Frequentes = Voz sendo capturada ✅
+📊 Ondas Pequenas e Irregulares = Ruído de fundo ⚠️
+📊 Linha Quase Reta = Silêncio ou ruído muito baixo 🔇
+```
+
+**Como interpretar:**
+
+- **Linha azul movimentada:** Boa captura de áudio
+- **Linha quase reta:** Nenhum som detectado
+- **Picos muito irregulares:** Muito ruído, ajuste sensibilidade
+
+---
+
+## 🛠️ SOLUÇÃO DE PROBLEMAS
+
+### **❌ Problema: Muito Ruído na Transcrição**
+
+**Soluções:**
+
+1. ✅ Ative o "Filtro Inteligente de Ruído"
+2. ✅ Diminua a "Sensibilidade" para 2-3%
+3. ✅ Aproxime-se mais do microfone
+4. ✅ Afaste-se de fontes de ruído
+5. ✅ Use fones de ouvido com microfone
+
+### **❌ Problema: Palavras Sendo Cortadas**
+
+**Soluções:**
+
+1. ✅ Aumente a "Sensibilidade" para 6-8%
+2. ✅ Fale um pouco mais alto
+3. ✅ Verifique se o ganho automático está ativado
+4. ✅ Teste outro microfone
+
+### **❌ Problema: Transcrição Imprecisa**
+
+**Soluções:**
+
+1. ✅ Fale mais devagar e claramente
+2. ✅ Verifique se o idioma correto está selecionado
+3. ✅ Verifique a barra de "Confiança" (deve estar > 70%)
+4. ✅ Ative todos os filtros
+5. ✅ Teste em ambiente mais silencioso
+
+### **❌ Problema: Eco no Áudio**
+
+**Soluções:**
+
+1. ✅ Ative o "Cancelamento de Eco"
+2. ✅ Use fones de ouvido
+3. ✅ Diminua volume de alto-falantes
+4. ✅ Afaste-se de paredes reflexivas
+
+### **❌ Problema: Volume Muito Baixo/Alto**
+
+**Soluções:**
+
+1. ✅ Ative o "Ganho Automático (AGC)"
+2. ✅ Ajuste volume do sistema operacional
+3. ✅ Teste outro microfone
+4. ✅ Verifique configurações de microfone no Windows/Mac
+
+### **❌ Problema: Não Funciona no Celular**
+
+**Soluções:**
+
+1. ✅ Use navegador Chrome ou Safari
+2. ✅ Permita acesso ao microfone quando solicitado
+3. ✅ Verifique se site está em HTTPS
+4. ✅ Recarregue a página
+5. ✅ Limpe cache do navegador
+
+---
+
+## 📊 COMPATIBILIDADE DOS FILTROS
+
+| Recurso          | Chrome | Edge | Safari | Firefox |
+| ---------------- | ------ | ---- | ------ | ------- |
+| Filtro de Ruído  | ✅     | ✅   | ✅     | ⚠️      |
+| Cancelamento Eco | ✅     | ✅   | ✅     | ⚠️      |
+| Ganho Automático | ✅     | ✅   | ✅     | ⚠️      |
+| Visualizador     | ✅     | ✅   | ✅     | ✅      |
+
+⚠️ = Suporte limitado ou experimental
+
+---
+
+## 🔐 PRIVACIDADE E SEGURANÇA
+
+### **✅ O que acontece com seu áudio?**
+
+- ✨ Todo processamento é LOCAL no navegador
+- ✨ Filtros de ruído funcionam no seu computador
+- ✨ Apenas texto é enviado para API de reconhecimento
+- ✨ Áudio NÃO é armazenado em nenhum servidor
+- ✨ Histórico fica apenas no seu dispositivo
+
+### **✅ Permissões necessárias:**
+
+- 🎤 Acesso ao microfone (obrigatório)
+- 🌐 Conexão com internet (para API de reconhecimento)
+
+---
+
+## ⚙️ CONFIGURAÇÕES TÉCNICAS AVANÇADAS
+
+### **Parâmetros de Áudio (no código)**
+
+```javascript
+// Frequências filtradas
+highPassFilter: 100 Hz  // Remove ruído grave (tráfego, vento)
+lowPassFilter: 3400 Hz  // Remove ruído agudo (chiados, sirenes)
+
+// Compressor dinâmico
+threshold: -50 dB       // Limiar de compressão
+ratio: 12:1             // Taxa de compressão
+attack: 3ms             // Tempo de ataque
+release: 250ms          // Tempo de liberação
+
+// Detecção de silêncio
+timeout: 2000ms         // 2 segundos para pausar
+```
+
+### **Como ajustar no código (usuários avançados):**
+
+1. **Abra:** `assist/JS/script.js`
+
+2. **Encontre a seção:**
+
+```javascript
+async setupAudioStream() {
+    // Linha ~50-80
 }
 ```
 
-### Configuração JavaScript
+3. **Ajuste valores conforme necessário:**
+
 ```javascript
-// Alterar configurações do reconhecimento
-this.recognition.continuous = true;      // Reconhecimento contínuo
-this.recognition.interimResults = true;  // Resultados intermediários
-this.recognition.maxAlternatives = 1;    // Número de alternativas
+// Exemplo: Filtrar mais ruído grave
+highPassFilter.frequency.value = 150; // Era 100
+
+// Exemplo: Compressão mais agressiva
+this.compressor.ratio.value = 16; // Era 12
 ```
 
-## 🎯 Casos de Uso
+---
 
-### 👥 **Para Pessoas com Deficiência Auditiva**
-- Transcrição de palestras e reuniões
-- Anotações de aulas em tempo real
-- Comunicação assistida
-- Documentação de conversas
+## 📱 INSTRUÇÕES PARA CELULAR/TABLET
 
-### 💼 **Uso Profissional**
-- Transcrição de entrevistas
-- Anotações de reuniões
-- Ditado de documentos
-- Criação de atas
+### **Android (Chrome)**
 
-### 🎓 **Uso Educacional**
-- Anotações de aulas
-- Transcrição de pesquisas
-- Assistência em estudos
-- Acessibilidade acadêmica
+1. Abra o site no Chrome
+2. Toque no ícone de microfone 🎤
+3. Permita acesso quando solicitado
+4. Ajuste filtros conforme necessário
+5. Fale próximo ao microfone
 
-## 🔒 Privacidade e Dados
+### **iPhone/iPad (Safari)**
 
-- **Processamento Local**: Todo o reconhecimento acontece no seu navegador
-- **Sem Upload**: Nenhum áudio é enviado para servidores
-- **Histórico Local**: Armazenado apenas no seu dispositivo
-- **Sem Rastreamento**: Não coletamos dados pessoais
+1. Abra o site no Safari
+2. Toque no ícone de microfone 🎤
+3. Permita acesso quando solicitado
+4. **Importante:** Mantenha aba ativa
+5. Fale próximo ao microfone
 
-## ⚡ Performance
+### **Dicas para Mobile:**
 
-- **Tempo de Resposta**: < 100ms para transcrição
-- **Uso de Memória**: < 50MB
-- **Tamanho do Arquivo**: < 20KB
-- **Carregamento**: < 2 segundos
+- 📱 Mantenha celular na horizontal para melhor visualização
+- 🔋 Conecte carregador para sessões longas
+- 📶 Use Wi-Fi ao invés de dados móveis
+- 🎧 Fones de ouvido com microfone melhoram MUITO a qualidade
 
-## 🐛 Solução de Problemas
+---
 
-### Microfone não funciona?
-1. ✅ Verifique permissões do navegador
-2. ✅ Teste o microfone em outras aplicações
-3. ✅ Use HTTPS (necessário para Web Speech API)
-4. ✅ Recarregue a página e tente novamente
+## 🎓 CASOS DE USO ESPECÍFICOS
 
-### Transcrição imprecisa?
-1. 🎤 Fale mais devagar e claramente
-2. 🔇 Reduza ruídos de fundo
-3. 🌐 Verifique se o idioma está correto
-4. 📍 Aproxime o microfone da boca
+### **👂 Para Pessoas com Deficiência Auditiva**
 
-### Navegador não suportado?
-- Use Chrome ou Edge para melhor experiência
-- Safari funciona bem em dispositivos Apple
-- Firefox tem suporte limitado
+```
+Configuração Recomendada:
+✅ Todos os filtros ATIVOS
+✅ Sensibilidade: 4-5%
+✅ Fones com microfone de lapela
+✅ Posição: 15cm do falante
+```
 
-## 📈 Roadmap Futuro
+### **📝 Transcrição de Aulas/Palestras**
 
-- [ ] 🎵 Suporte para múltiplos formatos de áudio
-- [ ] 🤖 Integração com IA para melhor pontuação
-- [ ] 📱 Aplicativo móvel nativo
-- [ ] 🌐 Mais idiomas
-- [ ] 💾 Sincronização em nuvem (opcional)
+```
+Configuração Recomendada:
+✅ Filtro de Ruído: Ativo
+✅ Cancelamento de Eco: Ativo
+✅ Sensibilidade: 5-6%
+✅ Posição: Centro da sala
+```
+
+### **💼 Reuniões/Entrevistas**
+
+```
+Configuração Recomendada:
+✅ Todos filtros ATIVOS
+✅ Sensibilidade: 4-5%
+✅ Microfone externo recomendado
+✅ Ambiente silencioso
+```
+
+### **🚗 Uso em Veículo (NÃO recomendado, mas possível)**
+
+```
+Configuração Recomendada:
+✅ Filtro de Ruído: Ativo
+✅ Cancelamento de Eco: Desativo
+✅ Sensibilidade: 8-9%
+✅ ATENÇÃO: Segurança primeiro!
+```
+
+---
+
+## 📞 SUPORTE E AJUDA
+
+### **🐛 Reportar Bug:**
+
+1. Anote o navegador e versão
+2. Descreva o problema detalhadamente
+3. Informe configurações usadas
+4. Tire screenshot se possível
+5. Envie para: devlibrasjunior@gmail.com
+
+### **💡 Sugestões:**
+
+- GitHub: https://github.com/Nelsonromeirojunior
+- LinkedIn: https://www.linkedin.com/in/nelson-romeiro-junior-5933263a/
+- Email: nelson.romeiro.junior@hotmail.com
+
+---
+
+## 🔄 ATUALIZAÇÕES FUTURAS PLANEJADAS
+
+- [ ] 🎵 Filtro adaptativo que aprende com o ambiente
+- [ ] 🤖 IA para pontuação automática
+- [ ] 📊 Análise de qualidade de áudio em tempo real
+- [ ] 🌐 Mais idiomas e dialetos
+- [ ] 💾 Exportação em múltiplos formatos
 - [ ] 🎨 Temas personalizáveis
 - [ ] 🔊 Síntese de voz (text-to-speech)
 
-## 🤝 Contribuindo
+---
 
-Contribuições são sempre bem-vindas! Para contribuir:
+## 🎉 CHECKLIST DE INSTALAÇÃO
 
-1. **Fork** o projeto
-2. **Crie** uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** para a branch (`git push origin feature/AmazingFeature`)
-5. **Abra** um Pull Request
+```
+☐ 1. Baixei o novo script.js
+☐ 2. Substituí o arquivo script.js antigo
+☐ 3. Baixei o novo index.html
+☐ 4. Substituí o arquivo index.html antigo
+☐ 5. Adicionei CSS adicional ao final do style.css
+☐ 6. Testei no navegador (Chrome/Edge/Safari)
+☐ 7. Permiti acesso ao microfone
+☐ 8. Testei todos os filtros
+☐ 9. Ajustei sensibilidade conforme ambiente
+☐ 10. Funcionou perfeitamente! 🎉
+```
 
-### 📋 Como Reportar Bugs
-1. Use a aba **Issues** do GitHub
-2. Descreva o problema detalhadamente
-3. Inclua passos para reproduzir
-4. Mencione navegador e sistema operacional
+---
 
-## 📄 Licença
+## 📝 RESUMO RÁPIDO
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+**O QUE MUDOU:**
 
-## 👨‍💻 Autor
+- ✅ Adicionado filtro inteligente de ruído
+- ✅ Cancelamento de eco implementado
+- ✅ Ganho automático para normalizar volume
+- ✅ Visualizador de áudio em tempo real
+- ✅ Detecção automática de silêncio
+- ✅ Limpeza automática do texto transcrito
+- ✅ Controles ajustáveis de sensibilidade
 
-**Seu Nome**
-- GitHub: https://github.com/Nelsonromeirojunior
-- LinkedIn: https://www.linkedin.com/in/nelson-romeiro-junior-5933263a/
-- Email: devlibrasjunior@gmail.com | nelson.romeiro.junior@hotmail.com
+**COMO USAR:**
 
-## 🙏 Agradecimentos
+1. Abra o sistema atualizado
+2. Ative os filtros desejados
+3. Ajuste sensibilidade conforme ambiente
+4. Clique no microfone
+5. Fale normalmente
+6. Veja o texto aparecer limpo e preciso!
 
-- **Bootstrap** pelo framework CSS
-- **Font Awesome** pelos ícones
-- **Web Speech API** pela tecnologia de reconhecimento
-- **Comunidade GitHub** pelo suporte e feedback
+---
 
-## 📊 Estatísticas do Projeto
+## 🙏 AGRADECIMENTO ESPECIAL
 
-![GitHub stars](https://img.shields.io/github/stars/seu-usuario/voice-to-text?style=social)
-![GitHub forks](https://img.shields.io/github/forks/seu-usuario/voice-to-text?style=social)
-![GitHub issues](https://img.shields.io/github/issues/seu-usuario/voice-to-text)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/seu-usuario/voice-to-text)
+Este sistema foi desenvolvido pensando em **ACESSIBILIDADE** e **INCLUSÃO DIGITAL**, especialmente para a comunidade surda e pessoas com deficiência auditiva.
+
+**Compartilhe este projeto!** Ajude mais pessoas a terem acesso a tecnologias assistivas de qualidade.
 
 ---
 
 <div align="center">
 
-**⭐ Se este projeto te ajudou, dê uma estrela! ⭐**
+**⭐ Se este sistema te ajudou, compartilhe com outras pessoas! ⭐**
 
-**🔗 [Demo Online](https://seu-usuario.github.io/voice-to-text) | 📖 [Documentação](https://github.com/seu-usuario/voice-to-text/wiki) | 🐛 [Reportar Bug](https://github.com/seu-usuario/voice-to-text/issues)**
+**🔊 Tornando o mundo mais acessível, uma palavra de cada vez! 🔊**
 
 </div>
 
 ---
 
-> 💡 **Dica**: Este projeto foi desenvolvido com foco especial em **acessibilidade** e **inclusão digital**. Contribua para tornar a web mais acessível para todos!
+> 💡 **Dúvidas?** Entre em contato pelos canais de suporte listados acima. Estamos aqui para ajudar!
