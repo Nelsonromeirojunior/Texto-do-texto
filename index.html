@@ -14,12 +14,122 @@
     />
     <link rel="stylesheet" href="./assist/CSS/style.css" />
     <link rel="icon" href="./assist/Img/CC_Libras.png" type="image/png" />
+    <style>
+      /* Estilos para visualizador de áudio */
+      .audio-visualizer-container {
+        background: rgba(52, 152, 219, 0.1);
+        border-radius: 15px;
+        padding: 15px;
+        margin: 20px 0;
+        border: 2px solid rgba(52, 152, 219, 0.3);
+      }
+
+      #audioVisualizer {
+        inline-size: 100%;
+        block-size: 80px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+      }
+
+      .noise-controls {
+        background: rgba(39, 174, 96, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0;
+        border: 2px solid rgba(39, 174, 96, 0.3);
+      }
+
+      .control-item {
+        margin: 15px 0;
+      }
+
+      .control-item label {
+        font-weight: bold;
+        color: #2c3e50;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      body.dark-theme .control-item label {
+        color: #e9ecef;
+      }
+
+      .form-check-input:checked {
+        background-color: #27ae60;
+        border-color: #27ae60;
+      }
+
+      .sensitivity-value {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 15px;
+        font-weight: bold;
+        margin-inline-start: 10px;
+      }
+
+      input[type="range"] {
+        inline-size: 100%;
+        block-size: 8px;
+        border-radius: 5px;
+        background: #e9ecef;
+        outline: none;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        inline-size: 20px;
+        block-size: 20px;
+        border-radius: 50%;
+        background: #3498db;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        inline-size: 20px;
+        block-size: 20px;
+        border-radius: 50%;
+        background: #3498db;
+        cursor: pointer;
+        border: none;
+      }
+
+      .feature-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #27ae60, #229954);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 5px;
+      }
+
+      .info-tooltip {
+        cursor: help;
+        color: #3498db;
+      }
+
+      @media (max-inline-size: 768px) {
+        #audioVisualizer {
+          block-size: 60px;
+        }
+
+        .noise-controls {
+          padding: 15px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Botão de alternância de tema -->
     <button class="theme-toggle" id="themeToggle">
       <i class="fas fa-sun"></i>
     </button>
+
     <div class="container-fluid">
       <div class="main-container">
         <div class="floating-particles" id="particles"></div>
@@ -29,7 +139,18 @@
             <i class="fas fa-microphone-alt"></i> Vídeo no Legando Virtual para
             Tradução Libras
           </h1>
-          <p>Pode Vídeo no Legando Virtual depois Tradução Libras:</p>
+          <p>Sistema Avançado com Cancelamento de Ruído</p>
+          <div>
+            <span class="feature-badge"
+              ><i class="fas fa-shield-alt"></i> Filtro de Ruído</span
+            >
+            <span class="feature-badge"
+              ><i class="fas fa-volume-up"></i> Cancelamento de Eco</span
+            >
+            <span class="feature-badge"
+              ><i class="fas fa-chart-line"></i> Ganho Automático</span
+            >
+          </div>
         </div>
 
         <div class="control-panel">
@@ -43,6 +164,113 @@
           <button id="microphoneBtn" class="microphone-btn idle">
             <i class="fas fa-microphone"></i>
           </button>
+
+          <!-- Controles Avançados de Ruído -->
+          <div class="noise-controls">
+            <h5 class="mb-3">
+              <i class="fas fa-sliders-h"></i> Controles de Filtro de Ruído
+              <i
+                class="fas fa-info-circle info-tooltip"
+                title="Configure os filtros para melhor qualidade"
+              ></i>
+            </h5>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="control-item">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="noiseFilterToggle"
+                      checked
+                    />
+                    <label class="form-check-label" for="noiseFilterToggle">
+                      <i class="fas fa-filter"></i> Filtro Inteligente de Ruído
+                    </label>
+                  </div>
+                  <small class="text-muted"
+                    >Remove barulhos de fundo automaticamente</small
+                  >
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="control-item">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="echoCancel"
+                      checked
+                    />
+                    <label class="form-check-label" for="echoCancel">
+                      <i class="fas fa-wave-square"></i> Cancelamento de Eco
+                    </label>
+                  </div>
+                  <small class="text-muted">Elimina ecos e reverberações</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <div class="control-item">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="autoGainToggle"
+                      checked
+                    />
+                    <label class="form-check-label" for="autoGainToggle">
+                      <i class="fas fa-sliders-h"></i> Ganho Automático (AGC)
+                    </label>
+                  </div>
+                  <small class="text-muted"
+                    >Ajusta volume automaticamente</small
+                  >
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="control-item">
+                  <label for="noiseSensitivity">
+                    <i class="fas fa-adjust"></i> Sensibilidade de Ruído
+                    <span class="sensitivity-value" id="sensitivityValue"
+                      >2</span
+                    >%
+                  </label>
+                  <input
+                    type="range"
+                    class="form-range"
+                    id="noiseSensitivity"
+                    min="0.01"
+                    max="0.1"
+                    step="0.01"
+                    value="0.02"
+                  />
+                  <small class="text-muted"
+                    >Quanto menor, mais sensível (filtra mais ruído)</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visualizador de Áudio -->
+          <div class="audio-visualizer-container">
+            <h6>
+              <i class="fas fa-waveform-path"></i> Visualizador de Áudio em
+              Tempo Real
+            </h6>
+            <canvas id="audioVisualizer"></canvas>
+            <small class="text-muted d-block mt-2">
+              <i class="fas fa-info-circle"></i> Visualização da onda sonora
+              capturada pelo microfone
+            </small>
+          </div>
+
           <!-- Settings Panel -->
           <div class="settings-panel">
             <div class="row">
@@ -64,7 +292,7 @@
               </div>
               <div class="col-md-6">
                 <label class="form-label">
-                  <i class="fas fa-volume-up"></i> Confiança:
+                  <i class="fas fa-chart-bar"></i> Confiança da Transcrição:
                 </label>
                 <div class="confidence-meter">
                   <div
@@ -73,6 +301,9 @@
                     style="inline-size: 0%"
                   ></div>
                 </div>
+                <small class="text-muted"
+                  >Precisão do reconhecimento de voz</small
+                >
               </div>
             </div>
           </div>
@@ -85,7 +316,7 @@
             <textarea
               id="textOutput"
               class="form-control text-output"
-              placeholder="O texto reconhecido aparecerá aqui..."
+              placeholder="O texto reconhecido aparecerá aqui... Fale claramente no microfone!"
               rows="8"
             ></textarea>
             <div class="word-count">
@@ -98,7 +329,7 @@
           <!-- Control Buttons -->
           <div class="controls-row text-center">
             <button id="saveBtn" class="btn btn-save btn-custom">
-              <i class="fas fa-save"></i> Salvar Texto
+              <i class="fas fa-save"></i> Salvar
             </button>
             <button id="copyBtn" class="btn btn-copy btn-custom">
               <i class="fas fa-copy"></i> Copiar
@@ -126,9 +357,39 @@
               <i class="fas fa-trash"></i> Limpar Histórico
             </button>
           </div>
+
+          <!-- Dicas de Uso -->
+          <div class="alert alert-info mt-4" role="alert">
+            <h6>
+              <i class="fas fa-lightbulb"></i> Dicas para Melhor Qualidade:
+            </h6>
+            <ul class="mb-0">
+              <li>
+                <strong>Ambiente Silencioso:</strong> Mesmo com filtros, quanto
+                menos ruído melhor
+              </li>
+              <li>
+                <strong>Posição do Microfone:</strong> Mantenha 15-30cm de
+                distância
+              </li>
+              <li>
+                <strong>Fale Claramente:</strong> Pronuncie bem as palavras
+              </li>
+              <li>
+                <strong>Ajuste a Sensibilidade:</strong> Se captar muito ruído,
+                diminua a sensibilidade
+              </li>
+              <li>
+                <strong>Internet Estável:</strong> Conexão necessária para
+                reconhecimento
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- VLibras Widget -->
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
@@ -139,11 +400,35 @@
     <script>
       new window.VLibras.Widget("https://vlibras.gov.br/app");
     </script>
+
     <!-- Toast Container -->
     <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="theme-footer text-center mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="mb-1">
+              <strong
+                >Sistema de Reconhecimento de Voz com Filtro de Ruído
+                Avançado</strong
+              >
+            </p>
+            <p class="mb-0">
+              <i class="fas fa-code"></i> Desenvolvido com
+              <i class="fas fa-heart text-danger"></i> para Acessibilidade | ©
+              <span id="ano-atual"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Arquivo no JS -->
+
+    <!-- Arquivo JS -->
     <script src="./assist/JS/script.js"></script>
   </body>
 </html>
